@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>Weather App</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.city.label_tag }} {{ form.city }}
+        <button type="submit" class="btn btn-primary">Get Weather</button>
+    </form>
+
+    {% if weather_data %}
+        <h2>Weather for {{ weather_data.city }}</h2>
+        <p>Temperature: {{ weather_data.temperature }}°C</p>
+        <p>Description: {{ weather_data.description }}</p>
+    {% endif %}
+</body>
+</html>
